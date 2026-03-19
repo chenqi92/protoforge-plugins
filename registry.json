@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "plugins": [
+    {
+      "id": "hj212-parser",
+      "name": "HJ212 协议解析",
+      "version": "1.0.0",
+      "description": "国标 HJ 212-2017 环保数据传输协议解析器。支持解析环保监测设备上报的数据报文，自动识别数据段中的各项监测指标（COD、氨氮、pH等），将原始字节流转换为结构化可读数据。",
+      "author": "ProtoForge 官方",
+      "type": "protocol-parser",
+      "icon": "🔬",
+      "entrypoint": "index.js",
+      "protocolIds": ["hj212"],
+      "tags": ["环保", "协议", "HJ212", "国标"],
+      "downloadUrl": "https://raw.githubusercontent.com/chenqi92/protoforge-plugins/main/dist/hj212-parser.tar.gz"
+    },
+    {
+      "id": "sfjk200-parser",
+      "name": "SFJK200 协议解析",
+      "version": "1.0.0",
+      "description": "SFJK200 水文监测数据通信协议解析器。支持解析水文遥测设备上报的各类水文数据（水位、流量、降雨量等），将二进制/文本报文转换为结构化可读信息。",
+      "author": "ProtoForge 官方",
+      "type": "protocol-parser",
+      "icon": "🌊",
+      "entrypoint": "index.js",
+      "protocolIds": ["sfjk200"],
+      "tags": ["水文", "协议", "SFJK200", "遥测"],
+      "downloadUrl": "https://raw.githubusercontent.com/chenqi92/protoforge-plugins/main/dist/sfjk200-parser.tar.gz"
+    }
+  ]
+}
