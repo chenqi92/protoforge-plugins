@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "plugins": [
     {
       "id": "hj212-parser",
@@ -12,7 +12,10 @@
       "entrypoint": "index.js",
       "protocolIds": ["hj212"],
       "tags": ["环保", "协议", "HJ212", "国标"],
-      "downloadUrl": "https://raw.githubusercontent.com/chenqi92/protoforge-plugins/main/dist/hj212-parser.tar.gz"
+      "downloadUrl": "https://raw.githubusercontent.com/chenqi92/protoforge-plugins/main/dist/hj212-parser.tar.gz",
+      "contributes": {
+        "parsers": [{ "protocolId": "hj212", "name": "HJ212 协议" }]
+      }
     },
     {
       "id": "sfjk200-parser",
@@ -25,7 +28,10 @@
       "entrypoint": "index.js",
       "protocolIds": ["sfjk200"],
       "tags": ["水文", "协议", "SFJK200", "遥测"],
-      "downloadUrl": "https://raw.githubusercontent.com/chenqi92/protoforge-plugins/main/dist/sfjk200-parser.tar.gz"
+      "downloadUrl": "https://raw.githubusercontent.com/chenqi92/protoforge-plugins/main/dist/sfjk200-parser.tar.gz",
+      "contributes": {
+        "parsers": [{ "protocolId": "sfjk200", "name": "SFJK200 协议" }]
+      }
     }
   ]
 }
