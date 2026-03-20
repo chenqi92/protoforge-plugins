@@ -8,5 +8,8 @@
   "icon": "🌊",
   "entrypoint": "index.js",
   "protocolIds": ["sfjk200"],
-  "tags": ["水文", "协议", "SFJK200", "遥测"]
+  "tags": ["水文", "协议", "SFJK200", "遥测"],
+  "contributes": {
+    "parsers": [{ "protocolId": "sfjk200", "name": "SFJK200 协议" }]
+  }
 }

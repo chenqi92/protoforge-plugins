@@ -8,5 +8,8 @@
   "icon": "🔬",
   "entrypoint": "index.js",
   "protocolIds": ["hj212"],
-  "tags": ["环保", "协议", "HJ212", "国标"]
+  "tags": ["环保", "协议", "HJ212", "国标"],
+  "contributes": {
+    "parsers": [{ "protocolId": "hj212", "name": "HJ212 协议" }]
+  }
 }
