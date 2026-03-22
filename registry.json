@@ -64,6 +64,43 @@
           "description": "Render Excel file stream responses as visual tables. Supports .xlsx and .xls formats with multi-sheet switching, ideal for debugging APIs that return Excel downloads."
         }
       }
+    },
+    {
+      "id": "font-jetbrains-mono",
+      "name": "JetBrains Mono 字体",
+      "version": "1.0.0",
+      "description": "JetBrains Mono — JetBrains 出品的等宽编程字体，支持连字，兼顾代码阅读与 UI 展示。安装后可在「设置 → 字体」中选用。",
+      "author": "ProtoForge 官方",
+      "type": "response-renderer",
+      "icon": "🔤",
+      "entrypoint": "noop.js",
+      "protocolIds": [],
+      "tags": ["字体", "等宽", "JetBrains", "编程"],
+      "downloadUrl": "https://raw.githubusercontent.com/chenqi92/protoforge-plugins/main/dist/font-jetbrains-mono.tar.gz",
+      "contributes": {
+        "fonts": [
+          {
+            "fontId": "jetbrains-mono",
+            "name": "JetBrains Mono",
+            "family": "'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace",
+            "category": "monospace",
+            "files": [
+              {
+                "path": "fonts/JetBrainsMono-Variable.woff2",
+                "weight": "100 800",
+                "style": "normal",
+                "format": "woff2"
+              }
+            ]
+          }
+        ]
+      },
+      "i18n": {
+        "en": {
+          "name": "JetBrains Mono Font",
+          "description": "JetBrains Mono — a monospaced programming font by JetBrains with ligature support. After installation, select it in Settings → Font."
+        }
+      }
     }
   ]
 }
