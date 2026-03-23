@@ -1,6 +1,7 @@
 name: Sync to Cloudflare R2
 
 on:
+  workflow_dispatch:
   push:
     branches: [main]
     paths:
