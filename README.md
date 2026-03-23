@@ -14,16 +14,27 @@ dist/                  # 插件 tar.gz 包（客户端下载安装）
   ├── mock-data-gen.tar.gz
   ├── curl-exporter.tar.gz
   └── request-stats-panel.tar.gz
+.github/workflows/     # CI/CD
+  └── sync-r2.yml      # 推送到 main 时自动同步到 Cloudflare R2
 ```
+
+## CDN 分发
+
+推送到 `main` 分支后，GitHub Actions 会自动将 `registry.json` 和 `dist/` 同步到 Cloudflare R2：
+
+- **GitHub (默认)**：`https://raw.githubusercontent.com/chenqi92/protoforge-plugins/main/`
+- **Cloudflare R2 (中国大陆)**：`https://protoforge.tuytuy.com/`
+
+客户端会根据用户 IP 自动选择最优下载源。
 
 ## 可用插件
 
 | 插件 | 类型 | 版本 | 说明 |
 |------|------|------|------|
-| 🔬 HJ212 协议解析 | protocol-parser | 1.0.0 | 国标 HJ 212-2017 环保数据传输协议 |
+| 🔬 HJ212 协议解析 | protocol-parser | 2.0.0 | 完整支持 HJ212-2005/2017 环保数据传输协议 |
 | 📊 Excel 表格渲染 | response-renderer | 1.0.0 | 将 Excel 文件流渲染为可视化表格 |
 | 🔤 JetBrains Mono 字体 | response-renderer | 1.0.0 | 等宽编程字体，支持连字 |
-| 🔐 请求时间戳签名 | request-hook | 1.0.0 | 自动注入 X-Timestamp / X-Signature / X-Nonce |
+| 🔐 请求时间戳签名 | request-hook | 1.0.0 | 自动注入 X-Timestamp / X-Signature |
 | 🎲 Mock 数据生成器 | data-generator | 1.0.0 | UUID / 随机字符串 / 整数 / 时间戳 / Email / IP |
 | 📋 cURL 命令导出 | export-format | 1.0.0 | 将请求配置导出为 cURL 命令行格式 |
 | 📈 请求统计面板 | sidebar-panel | 1.0.0 | 侧边栏实时请求统计（总数/成功率/延迟/状态码分布） |
@@ -44,4 +55,13 @@ dist/                  # 插件 tar.gz 包（客户端下载安装）
 1. 创建插件目录，包含 `manifest.json` 和入口脚本（如 `index.js`）
 2. 打包：`tar -czf dist/<plugin-id>.tar.gz -C <plugin-dir> .`
 3. 在 `registry.json` 中添加插件条目（含 `downloadUrl`）
-4. 推送到 GitHub
+4. 推送到 GitHub（CI 自动同步到 R2）
+
+## CI/CD Secrets
+
+在 GitHub 仓库 Settings → Secrets 中配置：
+
+| Secret | 说明 |
+|--------|------|
+| `R2_ACCESS_KEY_ID` | Cloudflare R2 Access Key ID |
+| `R2_SECRET_ACCESS_KEY` | Cloudflare R2 Secret Access Key |

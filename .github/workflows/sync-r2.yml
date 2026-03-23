@@ -1,0 +1,41 @@
+name: Sync to Cloudflare R2
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'registry.json'
+      - 'dist/**'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install rclone
+        run: |
+          curl -fsSL https://rclone.org/install.sh | sudo bash
+
+      - name: Configure rclone for R2
+        run: |
+          mkdir -p ~/.config/rclone
+          cat > ~/.config/rclone/rclone.conf << EOF
+          [r2]
+          type = s3
+          provider = Cloudflare
+          access_key_id = ${{ secrets.R2_ACCESS_KEY_ID }}
+          secret_access_key = ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          endpoint = https://549581670ccf342b3ad47b54a4a30c48.r2.cloudflarestorage.com
+          acl = private
+          no_check_bucket = true
+          EOF
+
+      - name: Sync registry.json to R2
+        run: |
+          rclone copyto registry.json r2:protoforge/registry.json --verbose
+
+      - name: Sync dist/ to R2
+        run: |
+          rclone sync dist/ r2:protoforge/dist/ --verbose
