@@ -85,6 +85,119 @@
           "description": "JetBrains Mono — a monospaced programming font by JetBrains with ligature support. After installation, select it in Settings → Font."
         }
       }
+    },
+    {
+      "id": "curl-exporter",
+      "name": "cURL 命令导出",
+      "version": "1.0.0",
+      "description": "将当前 HTTP 请求配置导出为 cURL 命令行格式，支持 Headers、Query Params、各种 Body 类型和认证方式的完整转换。一键复制即可在终端执行。",
+      "author": "ProtoForge 官方",
+      "type": "export-format",
+      "icon": "📋",
+      "entrypoint": "index.js",
+      "protocolIds": [],
+      "tags": ["cURL", "导出", "命令行", "CLI"],
+      "downloadUrl": "https://raw.githubusercontent.com/chenqi92/protoforge-plugins/main/dist/curl-exporter.tar.gz",
+      "contributes": {
+        "exportFormats": [
+          {
+            "formatId": "curl",
+            "name": "cURL",
+            "fileExtension": ".sh"
+          }
+        ]
+      },
+      "i18n": {
+        "en": {
+          "name": "cURL Command Export",
+          "description": "Export current HTTP request configuration as a cURL command, supporting headers, query params, various body types and authentication. One-click copy for terminal execution."
+        }
+      }
+    },
+    {
+      "id": "mock-data-gen",
+      "name": "Mock 数据生成器",
+      "version": "1.0.0",
+      "description": "快速生成常用 Mock 测试数据：UUID、随机字符串、随机整数、时间戳、随机 Email、随机 IPv4 地址。可在请求体编辑区域一键插入生成的数据。",
+      "author": "ProtoForge 官方",
+      "type": "data-generator",
+      "icon": "🎲",
+      "entrypoint": "index.js",
+      "protocolIds": [],
+      "tags": ["Mock", "测试数据", "随机", "UUID"],
+      "downloadUrl": "https://raw.githubusercontent.com/chenqi92/protoforge-plugins/main/dist/mock-data-gen.tar.gz",
+      "contributes": {
+        "generators": [
+          { "generatorId": "uuid", "name": "UUID v4", "description": "生成随机 UUID v4 标识符" },
+          { "generatorId": "random-string", "name": "随机字符串", "description": "生成指定长度的随机字母数字字符串" },
+          { "generatorId": "random-int", "name": "随机整数", "description": "生成指定范围内的随机整数" },
+          { "generatorId": "timestamp", "name": "时间戳", "description": "生成当前 Unix 时间戳（秒或毫秒）" },
+          { "generatorId": "random-email", "name": "随机 Email", "description": "生成随机邮箱地址" },
+          { "generatorId": "random-ip", "name": "随机 IPv4", "description": "生成随机 IPv4 地址" }
+        ]
+      },
+      "i18n": {
+        "en": {
+          "name": "Mock Data Generator",
+          "description": "Quickly generate common mock test data: UUID, random strings, random integers, timestamps, random emails, random IPv4 addresses. Insert generated data into request body editors with one click."
+        }
+      }
+    },
+    {
+      "id": "request-stats-panel",
+      "name": "请求统计面板",
+      "version": "1.0.0",
+      "description": "在侧边栏提供本次会话的 HTTP 请求统计面板。显示请求总数、成功/失败计数、平均响应时间、状态码分布等关键指标，帮助快速了解 API 调试整体状况。",
+      "author": "ProtoForge 官方",
+      "type": "sidebar-panel",
+      "icon": "📈",
+      "entrypoint": "noop.js",
+      "protocolIds": [],
+      "tags": ["统计", "面板", "监控", "分析"],
+      "downloadUrl": "https://raw.githubusercontent.com/chenqi92/protoforge-plugins/main/dist/request-stats-panel.tar.gz",
+      "contributes": {
+        "sidebarPanels": [
+          {
+            "panelId": "request-stats",
+            "name": "请求统计",
+            "icon": "📈"
+          }
+        ]
+      },
+      "i18n": {
+        "en": {
+          "name": "Request Stats Panel",
+          "description": "Provides a session-level HTTP request statistics panel in the sidebar. Displays total requests, success/failure counts, average response time, status code distribution and other key metrics to quickly assess API debugging progress."
+        }
+      }
+    },
+    {
+      "id": "timestamp-signer",
+      "name": "请求时间戳签名",
+      "version": "1.0.0",
+      "description": "自动在请求 Headers 中注入 X-Timestamp（当前 Unix 毫秒时间戳）和 X-Signature（基于请求参数的简单签名），适用于需要请求签名验证的 API 接口调试。",
+      "author": "ProtoForge 官方",
+      "type": "request-hook",
+      "icon": "🔐",
+      "entrypoint": "index.js",
+      "protocolIds": [],
+      "tags": ["签名", "时间戳", "安全", "钩子"],
+      "downloadUrl": "https://raw.githubusercontent.com/chenqi92/protoforge-plugins/main/dist/timestamp-signer.tar.gz",
+      "contributes": {
+        "requestHooks": [
+          {
+            "hookType": "pre-request",
+            "name": "时间戳签名",
+            "description": "在请求发送前注入 X-Timestamp 和 X-Signature"
+          }
+        ]
+      },
+      "i18n": {
+        "en": {
+          "name": "Request Timestamp Signer",
+          "description": "Automatically inject X-Timestamp (current Unix epoch ms) and X-Signature (simple hash-based signature) into request headers, useful for debugging APIs that require request signing."
+        }
+      }
     }
   ]
 }
