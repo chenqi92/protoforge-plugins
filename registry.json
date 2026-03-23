@@ -198,6 +198,37 @@
           "description": "Automatically inject X-Timestamp (current Unix epoch ms) and X-Signature (simple hash-based signature) into request headers, useful for debugging APIs that require request signing."
         }
       }
+    },
+    {
+      "id": "crypto-toolkit",
+      "name": "加密解密工具箱",
+      "version": "1.0.0",
+      "description": "提供 Base64、URL 编码、Hex、MD5、SHA-1、SHA-256、AES-CBC、AES-ECB 等常用加密解密算法。支持右键菜单快速操作和前/后置脚本调用。",
+      "author": "ProtoForge 官方",
+      "type": "crypto-tool",
+      "icon": "🔐",
+      "entrypoint": "index.js",
+      "protocolIds": [],
+      "tags": ["加密", "解密", "编码", "哈希", "AES", "Base64", "MD5", "SHA"],
+      "downloadUrl": "https://raw.githubusercontent.com/chenqi92/protoforge-plugins/main/dist/crypto-toolkit-1.0.0.tar.gz",
+      "contributes": {
+        "cryptoAlgorithms": [
+          { "algorithmId": "base64", "name": "Base64", "category": "encode", "supportEncrypt": true, "supportDecrypt": true },
+          { "algorithmId": "url-encode", "name": "URL Encode", "category": "encode", "supportEncrypt": true, "supportDecrypt": true },
+          { "algorithmId": "hex", "name": "Hex", "category": "encode", "supportEncrypt": true, "supportDecrypt": true },
+          { "algorithmId": "md5", "name": "MD5", "category": "hash", "supportEncrypt": true, "supportDecrypt": false },
+          { "algorithmId": "sha1", "name": "SHA-1", "category": "hash", "supportEncrypt": true, "supportDecrypt": false },
+          { "algorithmId": "sha256", "name": "SHA-256", "category": "hash", "supportEncrypt": true, "supportDecrypt": false },
+          { "algorithmId": "aes-cbc", "name": "AES-CBC", "category": "symmetric", "supportEncrypt": true, "supportDecrypt": true },
+          { "algorithmId": "aes-ecb", "name": "AES-ECB", "category": "symmetric", "supportEncrypt": true, "supportDecrypt": true }
+        ]
+      },
+      "i18n": {
+        "en": {
+          "name": "Crypto Toolkit",
+          "description": "Common encryption/decryption algorithms: Base64, URL Encode, Hex, MD5, SHA-1, SHA-256, AES-CBC, AES-ECB. Supports right-click menu and pre/post-script API."
+        }
+      }
     }
   ]
 }
