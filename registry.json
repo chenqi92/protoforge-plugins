@@ -248,9 +248,9 @@
     },
     {
       "id": "icon-pack-protoforge",
-      "name": "ProtoForge 图标包",
+      "name": "ProtoForge 图标仓库",
       "version": "1.0.0",
-      "description": "ProtoForge 内置扩展图标包。包含工业/IoT/API 调试常用图标，可在其他插件的 manifest 中通过 \"pf:图标名\" 引用。",
+      "description": "ProtoForge 内置扩展图标仓库。包含工业/IoT/API 调试常用图标，可在其他插件的 manifest 中通过 \"pf:图标名\" 引用。",
       "author": "ProtoForge 官方",
       "type": "icon-pack",
       "icon": "palette",
