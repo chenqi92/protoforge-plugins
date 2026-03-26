@@ -256,12 +256,12 @@ function parse(rawData) {
     var pos = 0;
 
     // 2. 起始符 (2B)
-    fields.push({ key: "head", label: "起始符", value: "7E7E", group: "帧头" });
+    fields.push({ key: "head", label: "起始符", value: "7E7E", group: "帧头", uiType: "code" });
     pos = 2;
 
     // 3. 中心站地址 (1B)
     var centralAddr = bytesToHex([bytes[pos]]);
-    fields.push({ key: "centralAddr", label: "中心站地址", value: centralAddr, group: "帧头" });
+    fields.push({ key: "centralAddr", label: "中心站地址", value: centralAddr, group: "帧头", isKeyInfo: true });
     pos += 1;
 
     // 4. 遥测站地址 (5B BCD)
@@ -279,11 +279,14 @@ function parse(rawData) {
     // 6. 功能码 (1B)
     var funcCode = bytesToHex([bytes[pos]]).toLowerCase();
     var funcInfo = FUNC_NAMES[funcCode] || { name: "未知功能码", short: "未知", direction: "?" };
+    var funcColor = funcInfo.direction === "上行" ? "emerald" : funcInfo.direction === "下行" ? "blue" : "slate";
     fields.push({
       key: "funcCode", label: "功能码",
       value: "H" + funcCode.toUpperCase() + " (" + funcInfo.name + ") [" + funcInfo.direction + "]",
       group: "帧头",
-      isKeyInfo: true
+      isKeyInfo: true,
+      uiType: "badge",
+      color: funcColor
     });
     pos += 1;
 
@@ -359,7 +362,9 @@ function parse(rawData) {
         fields.push({
           key: "stationType", label: "遥测站分类",
           value: stationType + " (" + stationTypeName + ")",
-          group: "业务数据"
+          group: "业务数据",
+          uiType: "badge",
+          color: "purple"
         });
         pos += 1;
       }
@@ -399,7 +404,8 @@ function parse(rawData) {
         case "04": endTagName = "EOT(传输结束)"; break;
         default: endTagName = endTag;
       }
-      fields.push({ key: "endTag", label: "结束符", value: endTag + " (" + endTagName + ")", group: "帧尾" });
+      var endColor = endTag === "03" ? "emerald" : endTag === "06" ? "blue" : endTag === "15" ? "red" : "slate";
+      fields.push({ key: "endTag", label: "结束符", value: endTag + " (" + endTagName + ")", group: "帧尾", uiType: "badge", color: endColor });
       pos += 1;
     }
 
@@ -420,7 +426,7 @@ function parse(rawData) {
       } else {
         crcDisplay += " ✗ 校验失败 (预期 " + computedHex + ")";
       }
-      fields.push({ key: "crc", label: "CRC16 Modbus", value: crcDisplay, group: "帧尾", uiType: "badge", color: isOk ? "emerald" : "red" });
+      fields.push({ key: "crc", label: "CRC16 Modbus", value: crcDisplay, group: "帧尾", uiType: "badge", color: isOk ? "emerald" : "red", isKeyInfo: true });
     }
 
     // 12. 总长度
