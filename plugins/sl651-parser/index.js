@@ -435,11 +435,15 @@ function parse(rawData) {
     // 生成摘要
     var summary = "SL651 " + funcInfo.short + " [" + stationAddr + "]";
 
+    // 生成 layout（插件自控布局）
+    var layout = buildLayout(fields);
+
     return {
       success: true,
       protocolName: "SL651",
       summary: summary,
-      fields: fields
+      fields: fields,
+      layout: layout
     };
 
   } catch (e) {
@@ -451,6 +455,56 @@ function parse(rawData) {
       error: "解析异常: " + e.toString()
     };
   }
+}
+
+// ═══════════════════════════════════════════
+//  Layout 布局生成（插件自控渲染）
+// ═══════════════════════════════════════════
+
+function buildLayout(fields) {
+  var sections = [];
+
+  // 按 group 分组收集
+  var groupMap = {};
+  var groupOrder = [];
+  for (var i = 0; i < fields.length; i++) {
+    var f = fields[i];
+    var g = f.group || "__ungrouped";
+    if (!groupMap[g]) {
+      groupMap[g] = [];
+      groupOrder.push(g);
+    }
+    groupMap[g].push(f);
+  }
+
+  // 分组色彩与样式映射
+  var styleMap = {
+    "帧头": { style: "key-value", color: "blue" },
+    "业务数据": { style: "key-value", color: "teal" },
+    "水文要素": { style: "grid", color: "cyan" },
+    "图片传输": { style: "key-value", color: "purple" },
+    "帧尾": { style: "key-value", color: "slate" }
+  };
+
+  for (var gi = 0; gi < groupOrder.length; gi++) {
+    var group = groupOrder[gi];
+    var gFields = groupMap[group];
+    var mapping = styleMap[group] || { style: "key-value", color: "slate" };
+
+    var keys = [];
+    for (var ki = 0; ki < gFields.length; ki++) {
+      keys.push(gFields[ki].key);
+    }
+
+    sections.push({
+      title: group,
+      style: mapping.style,
+      color: mapping.color,
+      fieldKeys: keys
+    });
+  }
+
+  return { sections: sections };
 }
 
 // ═══════════════════════════════════════════
