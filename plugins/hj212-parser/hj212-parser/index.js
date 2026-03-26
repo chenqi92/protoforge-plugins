@@ -239,7 +239,8 @@ function parse(rawData) {
         value: crcDisplay, 
         group: "报文结构",
         uiType: "badge",
-        color: isOk ? "emerald" : "red"
+        color: isOk ? "emerald" : "red",
+        isKeyInfo: true
       });
     }
 

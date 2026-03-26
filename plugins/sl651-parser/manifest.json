@@ -1,10 +1,11 @@
-﻿{
+{
   "id": "sl651-parser",
   "name": "SL651 融合器协议解析",
   "version": "1.0.1",
   "description": "完整支持 SL651-2004/2014 水文监测数据通信规约（融合器协议）。包含 CRC16 Modbus 校验、16 种功能码、40+ 水文要素中文释义与单位、BCD 时间解析、遥测站分类、报文解析与生成双功能。",
   "author": "ProtoForge 官方",
   "type": "protocol-parser",
+  "panelPosition": "right",
   "icon": "🌊",
   "entrypoint": "index.js",
   "protocolIds": ["sl651"],

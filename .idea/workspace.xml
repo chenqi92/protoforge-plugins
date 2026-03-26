@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="20844dc3-665a-44c8-8822-24a9b316842f" name="更改" comment="feat(protocol): 添加 HJ212 和 SL651 环保水文协议解析器&#10;&#10;- 实现 HJ212-2005/2017 环保数据传输协议完整解析器和报文生成器&#10;- 实现 SL651-2014 水文遥测通信规约解析器和报文生成器&#10;- 支持 HJ212 协议的 CRC16 校验、数据段解析和污染物因子识别&#10;- 支持 SL651 协议的 BCD 编码解析、功能码识别和水文要素处理&#10;- 提供完整的协议文档说明和数据格式支持&#10;- 集成时间格式化、单位转换等辅助功能模块" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CopilotPersistence">
+    <persistenceIdMap>
+      <entry key="_E:/workspace-freq/protoforge-plugins" value="3BKH4GrNOYAJmpagRnHMTPsqvAn" />
+    </persistenceIdMap>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;chenqi92&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:chenqi92/protoforge-plugins.git&quot;,
+    &quot;accountId&quot;: &quot;bebd6622-15bb-4733-afe7-8bc33df782a2&quot;
+  }
+}</component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="cX7n68lL" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="customMavenHome" value="C:\Users\cq921\scoop\apps\maven\current" />
+        <option name="localRepository" value="E:\maven\down" />
+        <option name="mavenHomeTypeForPersistence" value="CUSTOM" />
+        <option name="userSettingsFile" value="C:\Users\cq921\scoop\apps\maven\current\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3BKH4GrNOYAJmpagRnHMTPsqvAn" />
+  <component name="ProjectLevelVcsManager">
+    <OptionsSetting value="false" id="Update" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.rust.reset.selective.auto.import&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/workspace-freq/protoforge-plugins&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;org.rust.first.attach.projects&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;fileTemplates&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RustProjectSettings">
+    <option name="toolchainHomeDirectory" value="$USER_HOME$/scoop/persist/rustup/.cargo/bin" />
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.32098.37" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.32098.37" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="20844dc3-665a-44c8-8822-24a9b316842f" name="更改" comment="" />
+      <created>1751873121986</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1751873121986</updated>
+      <workItem from="1774230650085" duration="18000" />
+      <workItem from="1774328905802" duration="4874000" />
+      <workItem from="1774399626452" duration="32000" />
+      <workItem from="1774433278061" duration="2364000" />
+      <workItem from="1774486124212" duration="748000" />
+    </task>
+    <task id="LOCAL-00001" summary="feat(registry): 添加 SL651 融合器协议解析插件&#10;&#10;- 新增 sl651-parser 插件支持 SL651-2004/2014 水文监测数据通信规约&#10;- 实现 CRC16 Modbus 校验和 16 种功能码解析&#10;- 提供 40+ 水文要素中文释义与单位支持&#10;- 集成 BCD 时间解析和遥测站分类功能&#10;- 支持报文解析与生成双重功能&#10;- 添加完整的协议标签包括水文、融合器、SL651 等关键词">
+      <option name="closed" value="true" />
+      <created>1774329854600</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1774329854600</updated>
+    </task>
+    <task id="LOCAL-00002" summary="feat(protocol): 添加 HJ212 和 SL651 环保水文协议解析器&#10;&#10;- 实现 HJ212-2005/2017 环保数据传输协议完整解析器和报文生成器&#10;- 实现 SL651-2014 水文遥测通信规约解析器和报文生成器&#10;- 支持 HJ212 协议的 CRC16 校验、数据段解析和污染物因子识别&#10;- 支持 SL651 协议的 BCD 编码解析、功能码识别和水文要素处理&#10;- 提供完整的协议文档说明和数据格式支持&#10;- 集成时间格式化、单位转换等辅助功能模块">
+      <option name="closed" value="true" />
+      <created>1774437011457</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1774437011457</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="2f9148a0-a12f-47f9-a18b-ab2e616551ae" value="TOOL_WINDOW" />
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="2f9148a0-a12f-47f9-a18b-ab2e616551ae">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+            </State>
+          </value>
+        </entry>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat(registry): 添加 SL651 融合器协议解析插件&#10;&#10;- 新增 sl651-parser 插件支持 SL651-2004/2014 水文监测数据通信规约&#10;- 实现 CRC16 Modbus 校验和 16 种功能码解析&#10;- 提供 40+ 水文要素中文释义与单位支持&#10;- 集成 BCD 时间解析和遥测站分类功能&#10;- 支持报文解析与生成双重功能&#10;- 添加完整的协议标签包括水文、融合器、SL651 等关键词" />
+    <MESSAGE value="feat(protocol): 添加 HJ212 和 SL651 环保水文协议解析器&#10;&#10;- 实现 HJ212-2005/2017 环保数据传输协议完整解析器和报文生成器&#10;- 实现 SL651-2014 水文遥测通信规约解析器和报文生成器&#10;- 支持 HJ212 协议的 CRC16 校验、数据段解析和污染物因子识别&#10;- 支持 SL651 协议的 BCD 编码解析、功能码识别和水文要素处理&#10;- 提供完整的协议文档说明和数据格式支持&#10;- 集成时间格式化、单位转换等辅助功能模块" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(protocol): 添加 HJ212 和 SL651 环保水文协议解析器&#10;&#10;- 实现 HJ212-2005/2017 环保数据传输协议完整解析器和报文生成器&#10;- 实现 SL651-2014 水文遥测通信规约解析器和报文生成器&#10;- 支持 HJ212 协议的 CRC16 校验、数据段解析和污染物因子识别&#10;- 支持 SL651 协议的 BCD 编码解析、功能码识别和水文要素处理&#10;- 提供完整的协议文档说明和数据格式支持&#10;- 集成时间格式化、单位转换等辅助功能模块" />
+  </component>
+  <component name="github-copilot-workspace">
+    <instructionFileLocations>
+      <option value=".github/instructions" />
+    </instructionFileLocations>
+    <promptFileLocations>
+      <option value=".github/prompts" />
+    </promptFileLocations>
+  </component>
+</project>
