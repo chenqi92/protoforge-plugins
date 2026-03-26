@@ -8,12 +8,15 @@ ProtoForge 插件远程仓库。
 registry.json          # 插件注册表（客户端读取此文件获取可用插件列表）
 dist/                  # 插件 tar.gz 包（客户端下载安装）
   ├── hj212-parser.tar.gz
+  ├── sl651-parser-1.0.0.tar.gz
   ├── excel-renderer.tar.gz
   ├── font-jetbrains-mono.tar.gz
   ├── timestamp-signer.tar.gz
   ├── mock-data-gen.tar.gz
   ├── curl-exporter.tar.gz
   └── request-stats-panel.tar.gz
+docs/                  # 插件开发文档
+  └── protocol-ui-schema.md  # 插件渲染引擎完整参考
 .github/workflows/     # CI/CD
   └── sync-r2.yml      # 推送到 main 时自动同步到 Cloudflare R2
 ```
@@ -31,13 +34,16 @@ dist/                  # 插件 tar.gz 包（客户端下载安装）
 
 | 插件 | 类型 | 版本 | 说明 |
 |------|------|------|------|
-| 🔬 HJ212 协议解析 | protocol-parser | 2.0.0 | 完整支持 HJ212-2005/2017 环保数据传输协议 |
+| 🔬 HJ212 协议解析 | protocol-parser | 2.0.1 | 完整支持 HJ212-2005/2017 环保数据传输协议 |
+| 💧 SL651 融合器协议解析 | protocol-parser | 1.0.2 | 完整支持 SL651-2004/2014 水文监测数据通信规约 |
 | 📊 Excel 表格渲染 | response-renderer | 1.0.0 | 将 Excel 文件流渲染为可视化表格 |
 | 🔤 JetBrains Mono 字体 | response-renderer | 1.0.0 | 等宽编程字体，支持连字 |
 | 🔐 请求时间戳签名 | request-hook | 1.0.0 | 自动注入 X-Timestamp / X-Signature |
 | 🎲 Mock 数据生成器 | data-generator | 1.0.0 | UUID / 随机字符串 / 整数 / 时间戳 / Email / IP |
 | 📋 cURL 命令导出 | export-format | 1.0.0 | 将请求配置导出为 cURL 命令行格式 |
 | 📈 请求统计面板 | sidebar-panel | 1.0.0 | 侧边栏实时请求统计（总数/成功率/延迟/状态码分布） |
+| 🔑 密码学工具箱 | sidebar-panel | 1.0.0 | Base64/MD5/SHA/AES/RSA 等常用编解码工具 |
+| 🎨 图标包 | icon-pack | 1.0.0 | ProtoForge 自定义图标包 |
 
 ## 插件类型
 
@@ -53,9 +59,10 @@ dist/                  # 插件 tar.gz 包（客户端下载安装）
 ## 添加新插件
 
 1. 创建插件目录，包含 `manifest.json` 和入口脚本（如 `index.js`）
-2. 打包：`tar -czf dist/<plugin-id>.tar.gz -C <plugin-dir> .`
-3. 在 `registry.json` 中添加插件条目（含 `downloadUrl`）
-4. 推送到 GitHub（CI 自动同步到 R2）
+2. 参考 [插件渲染引擎文档](docs/protocol-ui-schema.md) 了解所有支持的渲染方式
+3. 打包：`tar -czf dist/<plugin-id>.tar.gz -C <plugin-dir> .`
+4. 在 `registry.json` 中添加插件条目（含 `downloadUrl`）
+5. 推送到 GitHub（CI 自动同步到 R2）
 
 ## CI/CD Secrets
 
