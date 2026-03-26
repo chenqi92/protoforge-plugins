@@ -98,6 +98,8 @@
       <workItem from="1774399626452" duration="32000" />
       <workItem from="1774433278061" duration="2364000" />
       <workItem from="1774486124212" duration="748000" />
+      <workItem from="1774490456582" duration="1536000" />
+      <workItem from="1774492876890" duration="92000" />
     </task>
     <task id="LOCAL-00001" summary="feat(registry): 添加 SL651 融合器协议解析插件&#10;&#10;- 新增 sl651-parser 插件支持 SL651-2004/2014 水文监测数据通信规约&#10;- 实现 CRC16 Modbus 校验和 16 种功能码解析&#10;- 提供 40+ 水文要素中文释义与单位支持&#10;- 集成 BCD 时间解析和遥测站分类功能&#10;- 支持报文解析与生成双重功能&#10;- 添加完整的协议标签包括水文、融合器、SL651 等关键词">
       <option name="closed" value="true" />

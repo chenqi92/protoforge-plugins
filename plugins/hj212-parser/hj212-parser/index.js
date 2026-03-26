@@ -307,11 +307,15 @@ function parse(rawData) {
     // 7. 生成 summary
     var summary = "HJ212 " + (CN_SHORT[cn] || "数据") + (mn ? " [" + mn + "]" : "");
 
+    // 8. 生成 layout（插件自控布局）
+    var layout = buildLayout(fields);
+
     return {
       success: true,
       protocolName: "HJ212",
       summary: summary,
-      fields: fields
+      fields: fields,
+      layout: layout
     };
   } catch (e) {
     return {
@@ -322,6 +326,126 @@ function parse(rawData) {
       error: "解析异常: " + e.toString()
     };
   }
+}
+
+// ═══════════════════════════════════════════
+//  Layout 布局生成（插件自控渲染）
+// ═══════════════════════════════════════════
+
+function buildLayout(fields) {
+  var sections = [];
+
+  // 按 group 分组收集 field keys
+  var groupMap = {};
+  var groupOrder = [];
+  for (var i = 0; i < fields.length; i++) {
+    var f = fields[i];
+    var g = f.group || "__ungrouped";
+    if (!groupMap[g]) {
+      groupMap[g] = [];
+      groupOrder.push(g);
+    }
+    groupMap[g].push(f);
+  }
+
+  for (var gi = 0; gi < groupOrder.length; gi++) {
+    var group = groupOrder[gi];
+    var gFields = groupMap[group];
+
+    if (group === "监测数据") {
+      // 监测数据使用 register 表格 — 按污染物编码分组
+      var pollutantMap = {};
+      var pollutantOrder = [];
+      for (var pi = 0; pi < gFields.length; pi++) {
+        var pf = gFields[pi];
+        var dashIdx = pf.key.indexOf("-");
+        var pollCode = dashIdx > 0 ? pf.key.substring(0, dashIdx) : pf.key;
+        var suffix = dashIdx > 0 ? pf.key.substring(dashIdx + 1) : "";
+        if (!pollutantMap[pollCode]) {
+          pollutantMap[pollCode] = { fields: {}, label: "" };
+          pollutantOrder.push(pollCode);
+        }
+        pollutantMap[pollCode].fields[suffix] = pf.key;
+        // 从 label 提取因子名称（去掉后缀词）
+        if (!pollutantMap[pollCode].label && pf.label) {
+          var label = pf.label;
+          var suffixes = [" 实时值", " 平均值", " 最小值", " 最大值", " 累计值", " 标志",
+                          " 折算实时值", " 折算平均值", " 折算最小值", " 折算最大值"];
+          for (var si = 0; si < suffixes.length; si++) {
+            var idx = label.indexOf(suffixes[si]);
+            if (idx > 0) { label = label.substring(0, idx); break; }
+          }
+          pollutantMap[pollCode].label = label;
+        }
+      }
+
+      // 检测实际使用了哪些后缀列
+      var allSuffixes = ["Rtd", "Avg", "Min", "Max", "Cou", "Flag"];
+      var suffixHeaders = ["实时值", "平均值", "最小值", "最大值", "累计值", "标志"];
+      var activeSuffixes = [];
+      var activeHeaders = ["因子"];
+      for (var ai = 0; ai < allSuffixes.length; ai++) {
+        var used = false;
+        for (var oi = 0; oi < pollutantOrder.length; oi++) {
+          if (pollutantMap[pollutantOrder[oi]].fields[allSuffixes[ai]]) {
+            used = true; break;
+          }
+        }
+        if (used) {
+          activeSuffixes.push(allSuffixes[ai]);
+          activeHeaders.push(suffixHeaders[ai]);
+        }
+      }
+
+      var rows = [];
+      for (var ri = 0; ri < pollutantOrder.length; ri++) {
+        var code = pollutantOrder[ri];
+        var info = pollutantMap[code];
+        var cells = [];
+        for (var ci = 0; ci < activeSuffixes.length; ci++) {
+          var cellKey = info.fields[activeSuffixes[ci]] || "";
+          cells.push({ key: cellKey });
+        }
+        // 检测 Flag 色彩
+        var rowColor = undefined;
+        var flagKey = info.fields["Flag"];
+        if (flagKey) {
+          var flagField = null;
+          for (var fi = 0; fi < fields.length; fi++) {
+            if (fields[fi].key === flagKey) { flagField = fields[fi]; break; }
+          }
+          if (flagField && flagField.color) rowColor = flagField.color;
+        }
+        rows.push({ label: info.label || code, color: rowColor, cells: cells });
+      }
+
+      sections.push({
+        title: "监测数据",
+        style: "register",
+        color: "emerald",
+        columns: activeHeaders,
+        rows: rows
+      });
+    } else {
+      // 其他分组使用 key-value 表
+      var colorMap = {
+        "报文结构": "indigo", "报文头": "blue", "数据区": "teal", "帧头": "blue",
+        "业务数据": "teal", "帧尾": "slate", "校验区": "amber"
+      };
+      var keys = [];
+      for (var ki = 0; ki < gFields.length; ki++) {
+        keys.push(gFields[ki].key);
+      }
+      sections.push({
+        title: group,
+        style: "key-value",
+        color: colorMap[group] || "slate",
+        fieldKeys: keys
+      });
+    }
+  }
+
+  return { sections: sections };
 }
 
 // ═══════════════════════════════════════════
