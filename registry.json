@@ -281,6 +281,31 @@
           "description": "Built-in extended icon pack for ProtoForge. Contains IoT/industrial/API debugging icons. Reference in other plugin manifests via \"pf:icon-name\"."
         }
       }
+    },
+    {
+      "id": "devtools-toolbox",
+      "name": "开发者工具箱",
+      "version": "1.0.0",
+      "description": "协议调试辅助工具集。包含 CRC/校验计算器（CRC-8/16/32、Modbus、CCITT、累加和、XOR）、数值进制转换器（十进制/十六进制/二进制/Float32，含大小端字节序）、字节操作工具（字节序翻转、按位取反、AND/OR 掩码）。",
+      "author": "ProtoForge 官方",
+      "type": "sidebar-panel",
+      "icon": "wrench",
+      "entrypoint": "noop.js",
+      "protocolIds": [],
+      "tags": ["工具箱", "CRC", "校验", "转换", "字节", "Modbus", "调试"],
+      "panelPosition": "right",
+      "downloadUrl": "https://raw.githubusercontent.com/chenqi92/protoforge-plugins/main/dist/devtools-toolbox-1.0.0.tar.gz",
+      "contributes": {
+        "sidebarPanels": [
+          { "panelId": "devtools-toolbox", "name": "工具箱", "icon": "wrench" }
+        ]
+      },
+      "i18n": {
+        "en": {
+          "name": "Developer Toolbox",
+          "description": "Protocol debugging utility set. CRC/checksum calculator (CRC-8/16/32, Modbus, CCITT, Sum, XOR), number base converter (Dec/Hex/Bin/Float32 with endian bytes), byte tools (endian swap, bitwise NOT, AND/OR mask)."
+        }
+      }
     }
   ]
 }
