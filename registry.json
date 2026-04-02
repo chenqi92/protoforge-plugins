@@ -135,29 +135,42 @@
     {
       "id": "mock-data-gen",
       "name": "Mock 数据生成器",
-      "version": "1.0.0",
-      "description": "快速生成常用 Mock 测试数据：UUID、随机字符串、随机整数、时间戳、随机 Email、随机 IPv4 地址。可在请求体编辑区域一键插入生成的数据。",
+      "version": "2.0.0",
+      "description": "快速生成常用 Mock 测试数据：多种 UUID 格式、时间日期、随机中文姓名、手机号、身份证号、Email、IP 地址、颜色、MAC 地址等。",
       "author": "ProtoForge 官方",
       "type": "data-generator",
       "icon": "dices",
       "entrypoint": "index.js",
       "protocolIds": [],
-      "tags": ["Mock", "测试数据", "随机", "UUID"],
+      "tags": ["Mock", "测试数据", "随机", "UUID", "姓名", "手机号", "身份证"],
       "downloadUrl": "https://raw.githubusercontent.com/chenqi92/protoforge-plugins/main/dist/mock-data-gen.tar.gz",
       "contributes": {
         "generators": [
-          { "generatorId": "uuid", "name": "UUID v4", "description": "生成随机 UUID v4 标识符" },
+          { "generatorId": "uuid", "name": "UUID v4", "description": "标准 UUID v4 (带连字符)" },
+          { "generatorId": "uuid-no-dash", "name": "UUID (无连字符)", "description": "32 位纯 hex 无连字符 UUID" },
+          { "generatorId": "uuid-short", "name": "短 UUID", "description": "基于时间的 8 位短 ID" },
           { "generatorId": "random-string", "name": "随机字符串", "description": "生成指定长度的随机字母数字字符串" },
           { "generatorId": "random-int", "name": "随机整数", "description": "生成指定范围内的随机整数" },
-          { "generatorId": "timestamp", "name": "时间戳", "description": "生成当前 Unix 时间戳（秒或毫秒）" },
+          { "generatorId": "timestamp", "name": "时间戳", "description": "当前 Unix 时间戳 (秒或毫秒)" },
+          { "generatorId": "datetime-iso", "name": "ISO 8601 时间", "description": "ISO 8601 标准格式时间" },
+          { "generatorId": "datetime-cn", "name": "中国标准时间", "description": "yyyy-MM-dd HH:mm:ss 格式" },
+          { "generatorId": "datetime-date", "name": "日期", "description": "yyyy-MM-dd 格式" },
+          { "generatorId": "datetime-time", "name": "时间", "description": "HH:mm:ss 格式" },
+          { "generatorId": "random-name-cn", "name": "随机中文姓名", "description": "百家姓 + 常用名字" },
+          { "generatorId": "random-phone-cn", "name": "随机手机号", "description": "符合中国运营商号段的手机号" },
+          { "generatorId": "random-idcard", "name": "随机身份证号", "description": "18 位身份证号 (含校验码)" },
           { "generatorId": "random-email", "name": "随机 Email", "description": "生成随机邮箱地址" },
-          { "generatorId": "random-ip", "name": "随机 IPv4", "description": "生成随机 IPv4 地址" }
+          { "generatorId": "random-ip", "name": "随机 IPv4", "description": "生成随机 IPv4 地址" },
+          { "generatorId": "random-ipv6", "name": "随机 IPv6", "description": "生成随机 IPv6 地址" },
+          { "generatorId": "random-url", "name": "随机 URL", "description": "生成随机 HTTPS URL" },
+          { "generatorId": "random-color", "name": "随机颜色", "description": "生成随机 HEX 颜色值" },
+          { "generatorId": "random-mac", "name": "随机 MAC 地址", "description": "生成随机 MAC 地址" }
         ]
       },
       "i18n": {
         "en": {
           "name": "Mock Data Generator",
-          "description": "Quickly generate common mock test data: UUID, random strings, random integers, timestamps, random emails, random IPv4 addresses. Insert generated data into request body editors with one click."
+          "description": "Generate common mock test data: multiple UUID formats, datetime, random Chinese names, phone numbers, ID card numbers, emails, IP addresses, colors, MAC addresses and more."
         }
       }
     },
@@ -220,14 +233,14 @@
     {
       "id": "crypto-toolkit",
       "name": "加密解密工具箱",
-      "version": "1.0.0",
-      "description": "提供 Base64、URL 编码、Hex、MD5、SHA-1、SHA-256、AES-CBC、AES-ECB 等常用加密解密算法。支持右键菜单快速操作和前/后置脚本调用。",
+      "version": "2.0.0",
+      "description": "提供 Base64、URL/Hex 编码、MD5、SHA-1/256/512、HMAC 系列、AES-CBC/ECB、DES/3DES、RC4 等常用加密解密算法。支持右键菜单快速操作和前/后置脚本调用。",
       "author": "ProtoForge 官方",
       "type": "crypto-tool",
       "icon": "shield-check",
       "entrypoint": "index.js",
       "protocolIds": [],
-      "tags": ["加密", "解密", "编码", "哈希", "AES", "Base64", "MD5", "SHA"],
+      "tags": ["加密", "解密", "编码", "哈希", "AES", "DES", "HMAC", "RC4", "Base64", "MD5", "SHA"],
       "downloadUrl": "https://raw.githubusercontent.com/chenqi92/protoforge-plugins/main/dist/crypto-toolkit-1.0.0.tar.gz",
       "contributes": {
         "cryptoAlgorithms": [
@@ -237,14 +250,23 @@
           { "algorithmId": "md5", "name": "MD5", "category": "hash", "supportEncrypt": true, "supportDecrypt": false },
           { "algorithmId": "sha1", "name": "SHA-1", "category": "hash", "supportEncrypt": true, "supportDecrypt": false },
           { "algorithmId": "sha256", "name": "SHA-256", "category": "hash", "supportEncrypt": true, "supportDecrypt": false },
+          { "algorithmId": "sha512", "name": "SHA-512", "category": "hash", "supportEncrypt": true, "supportDecrypt": false },
+          { "algorithmId": "hmac-md5", "name": "HMAC-MD5", "category": "hash", "supportEncrypt": true, "supportDecrypt": false },
+          { "algorithmId": "hmac-sha1", "name": "HMAC-SHA1", "category": "hash", "supportEncrypt": true, "supportDecrypt": false },
+          { "algorithmId": "hmac-sha256", "name": "HMAC-SHA256", "category": "hash", "supportEncrypt": true, "supportDecrypt": false },
+          { "algorithmId": "hmac-sha512", "name": "HMAC-SHA512", "category": "hash", "supportEncrypt": true, "supportDecrypt": false },
           { "algorithmId": "aes-cbc", "name": "AES-CBC", "category": "symmetric", "supportEncrypt": true, "supportDecrypt": true },
-          { "algorithmId": "aes-ecb", "name": "AES-ECB", "category": "symmetric", "supportEncrypt": true, "supportDecrypt": true }
+          { "algorithmId": "aes-ecb", "name": "AES-ECB", "category": "symmetric", "supportEncrypt": true, "supportDecrypt": true },
+          { "algorithmId": "des-cbc", "name": "DES-CBC", "category": "symmetric", "supportEncrypt": true, "supportDecrypt": true },
+          { "algorithmId": "des-ecb", "name": "DES-ECB", "category": "symmetric", "supportEncrypt": true, "supportDecrypt": true },
+          { "algorithmId": "3des-cbc", "name": "Triple DES (3DES-CBC)", "category": "symmetric", "supportEncrypt": true, "supportDecrypt": true },
+          { "algorithmId": "rc4", "name": "RC4", "category": "symmetric", "supportEncrypt": true, "supportDecrypt": true }
         ]
       },
       "i18n": {
         "en": {
           "name": "Crypto Toolkit",
-          "description": "Common encryption/decryption algorithms: Base64, URL Encode, Hex, MD5, SHA-1, SHA-256, AES-CBC, AES-ECB. Supports right-click menu and pre/post-script API."
+          "description": "Common encryption/decryption algorithms: Base64, URL/Hex Encode, MD5, SHA-1/256/512, HMAC series, AES-CBC/ECB, DES/3DES, RC4. Supports right-click menu and pre/post-script API."
         }
       }
     },
