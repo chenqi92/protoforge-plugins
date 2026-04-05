@@ -307,6 +307,57 @@
       }
     },
     {
+      "id": "gb26875-parser",
+      "name": "GB26875 消防远程监控协议解析",
+      "version": "1.0.0",
+      "description": "完整支持 GB 26875.3-2011 城市消防远程监控系统报警传输网络通信协议。包含帧头/帧尾校验、8种控制命令、31种数据类型（系统状态/部件状态/模拟量/操作信息/版本/配置/时间等）、24种系统类型、122种部件类型、16位状态位图解析、模拟量类型与单位映射、报文解析与生成双功能。",
+      "author": "ProtoForge 官方",
+      "type": "protocol-parser",
+      "panelPosition": "right",
+      "icon": "flame",
+      "entrypoint": "index.js",
+      "protocolIds": ["gb26875"],
+      "tags": ["消防", "火灾", "GB26875", "远程监控", "报警", "国标", "建筑消防", "城市消防"],
+      "downloadUrl": "https://raw.githubusercontent.com/chenqi92/protoforge-plugins/main/dist/gb26875-parser-1.0.0.tar.gz",
+      "contributes": {
+        "parsers": [{ "protocolId": "gb26875", "name": "GB26875 消防远程监控协议" }]
+      }
+    },
+    {
+      "id": "jbf293k-parser",
+      "name": "JBF293K 消防通讯协议解析",
+      "version": "1.0.0",
+      "description": "完整支持 JBF293K 通讯接口卡 RS232/485 通讯协议。包含 30+ 报警命令、气体喷洒系统 13 种消息、防火门/电气火灾扩展解析、累加和 & CRC8-MAXIM 双校验、多线盘/区号计算、模拟报警回路偏移、报文解析与生成双功能。",
+      "author": "ProtoForge 官方",
+      "type": "protocol-parser",
+      "panelPosition": "right",
+      "icon": "siren",
+      "entrypoint": "index.js",
+      "protocolIds": ["jbf293k"],
+      "tags": ["消防", "JBF293K", "火灾报警", "RS232", "RS485", "防火门", "电气火灾", "气体灭火"],
+      "downloadUrl": "https://raw.githubusercontent.com/chenqi92/protoforge-plugins/main/dist/jbf293k-parser-1.0.0.tar.gz",
+      "contributes": {
+        "parsers": [{ "protocolId": "jbf293k", "name": "JBF293K 消防通讯协议" }]
+      }
+    },
+    {
+      "id": "sfjk200-parser",
+      "name": "SFJK200 可燃气体控制器协议解析",
+      "version": "1.0.0",
+      "description": "完整支持 SFJK-200 可燃气体控制器 MODBUS 通讯协议。包含 CRC-16/Modbus 校验、4回路×248点探测器管理、254种气体类型中文释义与单位、探测器8位状态位图、控制器16位状态位图、外控电源状态解析、寄存器地址自动路由、报文解析与生成双功能。",
+      "author": "ProtoForge 官方",
+      "type": "protocol-parser",
+      "panelPosition": "right",
+      "icon": "wind",
+      "entrypoint": "index.js",
+      "protocolIds": ["sfjk200"],
+      "tags": ["可燃气体", "SFJK200", "Modbus", "RTU", "RS485", "气体检测", "探测器", "CRC16"],
+      "downloadUrl": "https://raw.githubusercontent.com/chenqi92/protoforge-plugins/main/dist/sfjk200-parser-1.0.0.tar.gz",
+      "contributes": {
+        "parsers": [{ "protocolId": "sfjk200", "name": "SFJK200 可燃气体控制器协议" }]
+      }
+    },
+    {
       "id": "devtools-toolbox",
       "name": "开发者工具箱",
       "version": "1.0.0",

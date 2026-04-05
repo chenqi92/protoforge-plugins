@@ -1,0 +1,12 @@
+# 插件源码目录 — 仅本地调试用，不提交到仓库
+# 发布时只需提交 dist/ 下的 tar.gz 包
+plugins/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
