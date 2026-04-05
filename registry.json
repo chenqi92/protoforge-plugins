@@ -15,7 +15,7 @@
       "tags": ["水文", "融合器", "SL651", "SL651-2014", "SL651-2004", "遥测", "水位", "CRC16", "Modbus", "国标"],
       "downloadUrl": "https://raw.githubusercontent.com/chenqi92/protoforge-plugins/main/dist/sl651-parser-1.0.0.tar.gz",
       "contributes": {
-        "parsers": [{ "protocolId": "sl651", "name": "SL651 融合器协议" }]
+        "parsers": [{ "protocolId": "sl651", "name": "SL651 融合器协议", "matchPatterns": ["^[7][Ee][7][Ee]"], "priority": 10 }]
       }
     },
     {
@@ -32,7 +32,7 @@
       "tags": ["环保", "协议", "HJ212", "HJ212-2017", "HJ212-2005", "国标", "CRC16"],
       "downloadUrl": "https://raw.githubusercontent.com/chenqi92/protoforge-plugins/main/dist/hj212-parser.tar.gz",
       "contributes": {
-        "parsers": [{ "protocolId": "hj212", "name": "HJ212 协议" }]
+        "parsers": [{ "protocolId": "hj212", "name": "HJ212 协议", "matchPatterns": ["^##\\d{4}"], "priority": 10 }]
       }
     },
     {
@@ -320,7 +320,7 @@
       "tags": ["消防", "火灾", "GB26875", "远程监控", "报警", "国标", "建筑消防", "城市消防"],
       "downloadUrl": "https://raw.githubusercontent.com/chenqi92/protoforge-plugins/main/dist/gb26875-parser-1.0.0.tar.gz",
       "contributes": {
-        "parsers": [{ "protocolId": "gb26875", "name": "GB26875 消防远程监控协议" }]
+        "parsers": [{ "protocolId": "gb26875", "name": "GB26875 消防远程监控协议", "matchPatterns": ["^(4040|@@)"], "priority": 10 }]
       }
     },
     {
@@ -337,7 +337,7 @@
       "tags": ["消防", "JBF293K", "火灾报警", "RS232", "RS485", "防火门", "电气火灾", "气体灭火"],
       "downloadUrl": "https://raw.githubusercontent.com/chenqi92/protoforge-plugins/main/dist/jbf293k-parser-1.0.0.tar.gz",
       "contributes": {
-        "parsers": [{ "protocolId": "jbf293k", "name": "JBF293K 消防通讯协议" }]
+        "parsers": [{ "protocolId": "jbf293k", "name": "JBF293K 消防通讯协议", "matchPatterns": ["^82"], "priority": 5 }]
       }
     },
     {
@@ -354,7 +354,7 @@
       "tags": ["可燃气体", "SFJK200", "Modbus", "RTU", "RS485", "气体检测", "探测器", "CRC16"],
       "downloadUrl": "https://raw.githubusercontent.com/chenqi92/protoforge-plugins/main/dist/sfjk200-parser-1.0.0.tar.gz",
       "contributes": {
-        "parsers": [{ "protocolId": "sfjk200", "name": "SFJK200 可燃气体控制器协议" }]
+        "parsers": [{ "protocolId": "sfjk200", "name": "SFJK200 可燃气体控制器协议", "matchPatterns": [], "priority": 0 }]
       }
     },
     {
