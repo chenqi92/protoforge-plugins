@@ -381,44 +381,6 @@
           "description": "Protocol debugging utility set. CRC/checksum calculator (CRC-8/16/32, Modbus, CCITT, Sum, XOR), number base converter (Dec/Hex/Bin/Float32 with endian bytes), byte tools (endian swap, bitwise NOT, AND/OR mask)."
         }
       }
-    },
-    {
-      "id": "json-excel-exporter",
-      "name": "JSON 数组导出 CSV",
-      "version": "1.0.0",
-      "description": "从 JSON 响应中选取数组节点，导出为 CSV 文件（可直接用 Excel 打开）。支持嵌套对象展平、自动列名提取、中文编码。",
-      "author": "ProtoForge 官方",
-      "type": "export-format",
-      "icon": "file-spreadsheet",
-      "entrypoint": "index.js",
-      "protocolIds": [],
-      "tags": ["JSON", "CSV", "Excel", "导出", "数组", "表格"],
-      "downloadUrl": "https://raw.githubusercontent.com/chenqi92/protoforge-plugins/main/dist/json-excel-exporter-1.0.0.tar.gz",
-      "contributes": {
-        "exportFormats": [
-          {
-            "formatId": "json-list-csv",
-            "name": "JSON List → CSV",
-            "fileExtension": ".csv",
-            "supportsResponse": true,
-            "parameters": [
-              {
-                "id": "jsonPath",
-                "name": "JSON Path",
-                "type": "json-path",
-                "required": true,
-                "description": "选择要导出的数组节点"
-              }
-            ]
-          }
-        ]
-      },
-      "i18n": {
-        "en": {
-          "name": "JSON Array to CSV Export",
-          "description": "Export array nodes from JSON responses as CSV files (directly openable in Excel). Supports nested object flattening, automatic column detection, and Unicode encoding."
-        }
-      }
     }
   ]
 }
